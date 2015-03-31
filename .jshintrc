@@ -1,0 +1,7 @@
+{
+  "globals": [
+    "JST": true,
+    "$": true,
+    "Backbone": true
+  ]
+}
