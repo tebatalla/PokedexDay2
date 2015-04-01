@@ -7,6 +7,7 @@ Pokedex.Views.PokemonIndex = Backbone.View.extend({
 
   initialize: function () {
     this.collection = new Pokedex.Collections.Pokemon();
+    this.listenTo(this.collection, "add", this.addPokemonToList);
   },
 
   addPokemonToList: function (pokemon) {
@@ -54,7 +55,6 @@ Pokedex.Views.PokemonDetail = Backbone.View.extend({
   },
 
   render: function () {
-    $('.toy-detail').empty();
     var content = JST["pokemonDetail"]({ pokemon: this.model });
     this.$el.append(content);
 
