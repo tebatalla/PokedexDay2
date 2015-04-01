@@ -31,7 +31,7 @@ Pokedex.Router = Backbone.Router.extend({
 
   toyDetail: function (pokemonId, toyId) {
     if(!this._pokemonDetail) {
-      this.pokemonDetail(pokemonId, this.toyDetail.bind(this, pokemonId, toyId))
+      this.pokemonDetail(pokemonId, this.toyDetail.bind(this, pokemonId, toyId));
     } else {
       var toyDetailView = new Pokedex.Views.ToyDetail({
         model: this._pokemonDetail.model.toys().get(toyId),
@@ -49,7 +49,7 @@ Pokedex.Router = Backbone.Router.extend({
     });
 
     pokemonFormView.render();
-    $('#pokedex .pokemon-form').html(pokemonFormView.$el)
+    $('#pokedex .pokemon-form').html(pokemonFormView.$el);
   }
 });
 

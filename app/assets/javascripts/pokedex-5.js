@@ -63,7 +63,13 @@ Pokedex.Views.PokemonDetail = Backbone.View.extend({
       this.$el.find('.toys').append(toyItem);
     }.bind(this));
 
-
+    var toyForm = new Pokedex.Views.ToyForm({
+      model: new Pokedex.Models.Toy(),
+      pokemon: this.model,
+      collection: this.model.toys()
+    })
+    toyForm.render();
+    this.$el.append(toyForm.$el);
   },
 
   selectToyFromList: function (event) {

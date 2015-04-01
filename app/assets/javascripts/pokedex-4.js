@@ -15,4 +15,7 @@ $(function () {
 
   JST["pokemonForm"] =
     _.template($("#pokemon-form-template").html());
+
+  JST["toyForm"] =
+    _.template($("#toy-form-template").html());
 });

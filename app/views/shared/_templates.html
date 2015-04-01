@@ -122,3 +122,46 @@
     <br>
   </form>
 </script>
+
+
+<script type="text/template" id="toy-form-template">
+  <form class='new-toy'>
+    <div>
+      <label
+        for='toy_name'>Name:</label>
+      <input
+        type='text'
+        id='toy_name'
+        name='toy[name]'>
+    </div>
+
+    <div>
+      <label
+        for='toy_image_url'>Image URL:</label>
+      <input
+        type='text'
+        id='toy_image_url'
+        name='toy[image_url]'>
+    </div>
+
+    <div>
+      <label
+        for='toy_happiness'>Happiness:</label>
+      <input type="number"
+        id='toy_happiness'
+        name='toy[happiness]'>
+    </div>
+
+    <div>
+      <label
+        for='toy_price'>Price:</label>
+      <input
+        type='number'
+        id='toy_price'
+        name='toy[price]'>
+    </div>
+
+    <button>Create Toy</button>
+    <br>
+  </form>
+</script>
