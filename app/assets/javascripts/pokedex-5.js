@@ -77,8 +77,30 @@ Pokedex.Views.PokemonDetail = Backbone.View.extend({
 });
 
 Pokedex.Views.ToyDetail = Backbone.View.extend({
+  events: {
+    "change select": "reassignToy"
+  },
+
+  initialize: function (options) {
+    this.pokemon = options.pokemon;
+    return this;
+  },
+
+  reassignToy: function(event){
+    var $currentTarget = $(event.currentTarget);
+    var oldPokemonId = this.model.get("pokemon_id");
+    this.model.set("pokemon_id", $currentTarget.val());
+    this.model.save({}, {
+      success: (function () {
+        this.pokemon.get(oldPokemonId).toys().remove(this.model);
+        this.pokemon.get($currentTarget.val()).toys().add(this.model);
+        Backbone.history.navigate("pokemon/" + oldPokemonId, { trigger: true })
+      }).bind(this)
+    });
+  },
+
   render: function () {
-    var content = JST["toyDetail"]({toy: this.model, pokemon: _([])});
+    var content = JST["toyDetail"]({toy: this.model, pokemon: this.pokemon});
     this.$el.html(content);
   }
 });
